@@ -7,4 +7,6 @@ By starting with 1 and 2, the first 10 terms will be:
 
 By considering the terms in the Fibonacci sequence whose values do not exceed four million, find the sum of the even-valued terms.
 
-*Answer: x*
+*Answer: 4613732*
+
+Note: to solve this problem, I preferred to use the iterative version of the Fibonacci algorithm, instead of the recursive one; this way is easier to check if one of the current factor is a multiple of two.

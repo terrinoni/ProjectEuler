@@ -24,9 +24,28 @@
 package it.terrinoni.projecteuler.two;
 
 /**
+ * Even Fibonacci numbers; problem 2.
  *
  * @author Marco Terrinoni
  */
 public class EvenFibonacciNumbers {
-    
+
+    public static void main(String[] args) {
+        int limit = 4000000,
+                val1 = 1,
+                val2 = 2,
+                val3,
+                sum = 0;
+
+        while ((val1 < limit) || (val2 < limit)) {
+            if (val1 % 2 == 0) {
+                sum += val1;
+            }
+            val3 = val1 + val2;
+            val1 = val2;
+            val2 = val3;
+        }
+
+        System.out.println("The sum of the even-valued terms is: " + String.valueOf(sum));
+    }
 }
