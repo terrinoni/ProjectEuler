@@ -5,4 +5,4 @@ The sum of these multiples is 23.
 
 Find the sum of all the multiples of 3 or 5 below 1000.
 
-*Answer: x*
+*Answer: 233168*
