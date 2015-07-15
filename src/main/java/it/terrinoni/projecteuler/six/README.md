@@ -12,6 +12,6 @@ Hence the difference between the sum of the squares of the first ten natural num
 
 Find the difference between the sum of the squares of the first one hundred natural numbers and the square of the sum.
 
-*Answer: x*
+*Answer: 25164150*
 
 Note: the computation of the difference has been obtained by simply calculate both the sum of the squares and the square of the sums; the algorithm used for this problem is extremely simple and possible optimizations should be introduced.
