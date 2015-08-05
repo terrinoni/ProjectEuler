@@ -21,7 +21,7 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
  */
-package it.terrinoni.projecteuler.five;
+package it.terrinoni.projecteuler.problem5;
 
 /**
  * Smallest multiple; problem 5.

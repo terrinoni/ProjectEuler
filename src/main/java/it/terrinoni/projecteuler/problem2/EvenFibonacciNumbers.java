@@ -21,7 +21,7 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
  */
-package it.terrinoni.projecteuler.two;
+package it.terrinoni.projecteuler.problem2;
 
 /**
  * Even Fibonacci numbers; problem 2.

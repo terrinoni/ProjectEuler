@@ -21,7 +21,7 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
  */
-package it.terrinoni.projecteuler.eight;
+package it.terrinoni.projecteuler.problem8;
 
 /**
  * Largest product in a series; problem 8.
@@ -32,7 +32,7 @@ public class LargestProductInSeries {
 
     public static void main(String[] args) {
         int len = 13;
-        int maxProduct = 0;
+        long maxProduct = 0;
         String number = "73167176531330624919225119674426574742355349194934"
                 + "96983520312774506326239578318016984801869478851843"
                 + "85861560789112949495459501737958331952853208805511"
@@ -54,13 +54,15 @@ public class LargestProductInSeries {
                 + "05886116467109405077541002256983155200055935729725"
                 + "71636269561882670428252483600823257530420752963450";
 
-        for (int i = len; i < number.length(); i++) {
-            int product = 1;
-            for (int j = i - 1; j >= (i - len); j--) {
-                product *= ((int) number.charAt(j) - 48);
+        // Compute the product
+        for (int i = 0; i < (number.length() - len); i++) { // iterate over the whole number
+            long product = 1;
+            for (int j = i; j < (i + len); j++) { // iterate over the selected values
+                long num = ((long) number.charAt(j) - 48);
+                product *= num;
             }
-
-            if (maxProduct < product) {
+            System.out.println(String.valueOf(product));
+            if (product > maxProduct) { // check if the computer product is the maximum
                 maxProduct = product;
             }
         }

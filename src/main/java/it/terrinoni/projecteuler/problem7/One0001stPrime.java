@@ -21,7 +21,7 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
  */
-package it.terrinoni.projecteuler.seven;
+package it.terrinoni.projecteuler.problem7;
 
 /**
  * 10001st prime; problem 7.
@@ -29,17 +29,18 @@ package it.terrinoni.projecteuler.seven;
  * @author Marco Terrinoni
  */
 public class One0001stPrime {
+
     public static void main(String[] args) {
         int count = 1;
         int val = 1;
         int limit = 10001;
-        while(count <= limit) {
+        while (count <= limit) {
             val++;
-            if(isPrime(val)) {
+            if (isPrime(val)) {
                 count++;
             }
         }
-        System.out.println("The " + (count-1) + "st prime number is " + val);
+        System.out.println("The " + (count - 1) + "st prime number is " + val);
     }
 
     private static boolean isPrime(long val) {

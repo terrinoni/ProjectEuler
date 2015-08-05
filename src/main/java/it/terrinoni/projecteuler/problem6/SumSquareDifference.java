@@ -21,7 +21,7 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
  */
-package it.terrinoni.projecteuler.six;
+package it.terrinoni.projecteuler.problem6;
 
 /**
  * Sum square difference; problem 6.
@@ -29,19 +29,21 @@ package it.terrinoni.projecteuler.six;
  * @author Marco Terrinoni
  */
 public class SumSquareDifference {
+
     public static void main(String[] args) {
         int limit = 100;
         long sumOfSquares = 0, squareOfSums = 0;
 
-        for(int i = 1; i <= limit; i++) {
+        for (int i = 1; i <= limit; i++) {
             sumOfSquares += Math.pow(i, 2);
             squareOfSums += i;
         }
-        
+
         squareOfSums = (long) Math.pow(squareOfSums, 2);
-        
+
         long diff = squareOfSums - sumOfSquares;
-        
-        System.out.println("The difference between the sum of the squares and the square of the sum is: " + String.valueOf(diff));
+
+        System.out.println("The difference between the sum of the squares and the square of the "
+                + "sum is: " + String.valueOf(diff));
     }
 }

@@ -21,7 +21,7 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
  */
-package it.terrinoni.projecteuler.four;
+package it.terrinoni.projecteuler.problem4;
 
 /**
  * Largest palindrome product; problem 4.
