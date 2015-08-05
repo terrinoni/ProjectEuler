@@ -21,37 +21,39 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
  */
-package it.terrinoni.projecteuler.problem9;
+package it.terrinoni.projecteuler.problem10;
 
 /**
- * Special Pythagorean triplet; problem 9.
+ * Summation of primes; problem 10.
  *
  * @author Marco Terrinoni
  */
-public class SpecialPythagoreanTriplet {
+public class SummationOfPrimes {
 
     public static void main(String[] args) {
-        int sum = 1000;
-        for (int a = 1; a < (sum / 3); a++) {
-            for (int b = (a + 1); b < (sum / 2); b++) {
-                int c = (sum - a - b);
-                if (isPythagoreanTriplet(a, b, c)) {
-                    System.out.println(a + "^2 + " + b + "^2 = " + c + "^2");
-                    System.out.println("The product of abc is " + String.valueOf(a * b * c));
-                }
+        long sum = 0;
+        int max = 2000000;
+        for (int i = 2; i < max; i++) {
+            if (isPrime((long) i)) {
+                sum += (long) i;
             }
         }
+        System.out.println("The sum of all the primes below two million is: "
+                + String.valueOf(sum));
     }
 
     /**
-     * Check if the input parameters generate a Pythagorean triplet.
+     * Iterate from 2 to square root of the number in exam.
      *
-     * @param a
-     * @param b
-     * @param c
-     * @return true if the input parameters generate a Pythagorean triplet.
+     * @param val the number in exam.
+     * @return true if the number in exam is prime, false otherwise.
      */
-    static boolean isPythagoreanTriplet(int a, int b, int c) {
-        return (Math.pow(a, 2) + Math.pow(b, 2)) == (Math.pow(c, 2));
+    static boolean isPrime(long val) {
+        for (int i = 2; i <= Math.sqrt(val); i++) {
+            if ((val % i) == 0) {
+                return false;
+            }
+        }
+        return true;
     }
 }

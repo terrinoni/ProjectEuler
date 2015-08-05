@@ -67,6 +67,6 @@ public class LargestProductInSeries {
             }
         }
 
-        System.out.println("The max product is: " + maxProduct);
+        System.out.println("The max product is: " + String.valueOf(maxProduct));
     }
 }
