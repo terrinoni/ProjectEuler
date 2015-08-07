@@ -56,11 +56,43 @@ public class LargestProductInAGrid {
         long maxProduct = 0;
         int len = 4;
         int gridDim = 20;
-        
-        // Check rows
-                
-        // Check columns
-                
-        // Check diagonals
+
+        for (int col = 0; col < gridDim; col++) {
+            for (int row = 0; row < gridDim; row++) {
+                // Check vertically
+                if (row <= (gridDim - len)) {
+                    int product = 1;
+                    for (int i = 0; i < len; i++) {
+                        product *= grid[col][row + i];
+                    }
+                    maxProduct = Math.max(maxProduct, product);
+                }
+                // Check horizontally
+                if (col <= (gridDim - len)) {
+                    int product = 1;
+                    for (int i = 0; i < len; i++) {
+                        product *= grid[col + i][row];
+                    }
+                    maxProduct = Math.max(maxProduct, product);
+                }
+                // Check diagonally (down-right)
+                if ((col <= (gridDim - len)) && (row >= len)) {
+                    int product = 1;
+                    for (int i = 0; i < len; i++) {
+                        product *= grid[col + i][row - i];
+                    }
+                    maxProduct = Math.max(maxProduct, product);
+                }
+                // Check diagonally (down-left)
+                if ((col <= (gridDim - len)) && (row <= (gridDim - len))) {
+                    int product = 1;
+                    for (int i = 0; i < len; i++) {
+                        product *= grid[col + i][row + i];
+                    }
+                    maxProduct = Math.max(maxProduct, product);
+                }
+            }
+        }
+        System.out.println("The greatest product is: " + maxProduct);
     }
 }
