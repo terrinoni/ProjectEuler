@@ -31,6 +31,35 @@ package it.terrinoni.projecteuler.problem12;
 public class HighlyDivisibleTriangularNumber {
 
     public static void main(String[] args) {
+        int triangNumber = 0;
+        int count = 1;
 
+        while (numberOfDivisors(triangNumber) < 500) {
+            triangNumber += count; // generate new triangle number
+            count++; // increment the counter
+        }
+
+        System.out.println(
+                "The value of the first triangle number to have over five hundred divisors is: "
+                + String.valueOf(triangNumber));
+    }
+
+    private static int numberOfDivisors(int number) {
+        int numOfDivisors = 0;
+        int sqrt = (int) Math.sqrt((double) number);
+
+        // Compute the number of divisors
+        for (int i = 1; i <= sqrt; i++) {
+            if (number % i == 0) { // i divides number
+                numOfDivisors += 2;
+            }
+        }
+
+        // Correction if the number is a perfect square
+        if (sqrt * sqrt == number) {
+            numOfDivisors--;
+        }
+
+        return numOfDivisors;
     }
 }
