@@ -23,6 +23,12 @@
  */
 package it.terrinoni.projecteuler.problem13;
 
+import java.io.BufferedReader;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
+import java.math.BigInteger;
+
 /**
  * Large sum; problem 13.
  *
@@ -30,7 +36,23 @@ package it.terrinoni.projecteuler.problem13;
  */
 public class LargeSum {
 
+    static String file = "src/main/resources/problem13";
+
     public static void main(String[] args) {
-        // HINT: use BigInteger
+        BigInteger total = BigInteger.ZERO;
+        try {
+            BufferedReader br = new BufferedReader(new FileReader(file));
+            String line;
+            while ((line = br.readLine()) != null) {
+                BigInteger hugeNumber = new BigInteger(line);
+                total = total.add(hugeNumber);
+            }
+        } catch (FileNotFoundException e) {
+            System.err.println("File not found.");
+        } catch (IOException e) {
+            System.err.println("Error while reading the file.");
+        }
+        System.out.println("The first ten digits of the total amount are: " + total.toString().
+                substring(0, 10));
     }
 }
