@@ -21,37 +21,46 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
  */
-package it.terrinoni.projecteuler.problem13;
-
-import java.io.BufferedReader;
-import java.io.FileNotFoundException;
-import java.io.FileReader;
-import java.io.IOException;
-import java.math.BigInteger;
+package it.terrinoni.projecteuler.problem14;
 
 /**
- * Large sum; problem 13.
+ * Longest Collatz sequence; problem 14.
  *
  * @author Marco Terrinoni
  */
-public class LargeSum {
+public class LongestCollatzSequence {
 
     public static void main(String[] args) {
-        String file = "src/main/resources/problem13";
-        BigInteger total = BigInteger.ZERO;
-        try {
-            BufferedReader br = new BufferedReader(new FileReader(file));
-            String line;
-            while ((line = br.readLine()) != null) {
-                BigInteger hugeNumber = new BigInteger(line);
-                total = total.add(hugeNumber);
+        int limit = 1000000;
+        int maxReached = 0;
+        long bestStarting = 0;
+
+        for (int i = 1; i <= limit; i++) {
+            int step = 0;
+            long num = i;
+            while (num > 1) {
+                if (num % 2 == 0) {
+                    num = isEven(num);
+                } else {
+                    num = isOdd(num);
+                }
+                step++;
             }
-        } catch (FileNotFoundException e) {
-            System.err.println("File not found.");
-        } catch (IOException e) {
-            System.err.println("Error while reading the file.");
+            if (step > maxReached) {
+                maxReached = step;
+                bestStarting = i;
+            }
         }
-        System.out.println("The first ten digits of the total amount are: " + total.toString().
-                substring(0, 10));
+
+        System.out.println("The longest chain (" + String.valueOf(maxReached + 1)
+                + " values) starts with number " + String.valueOf(bestStarting));
+    }
+
+    private static long isEven(long num) {
+        return num / 2;
+    }
+
+    private static long isOdd(long num) {
+        return 3 * num + 1;
     }
 }
